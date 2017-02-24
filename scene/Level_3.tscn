@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://scene/level.gd" type="Script" id=1]
+[ext_resource path="res://misc/tileset.xml" type="TileSet" id=2]
+[ext_resource path="res://scene/Star.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scene/Target.tscn" type="PackedScene" id=4]
+
+[node name="Level" type="Node2D"]
+
+transform/pos = Vector2( 100.477, 289.127 )
+script/script = ExtResource( 1 )
+item_flyingup = 20
+item_speedup = 10
+item_speed_down = 10
+
+[node name="TileMap" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 64, 64 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 51, 0, 52, 1, 53, 1, 54, 1, 55, 1, 56, 1, 57, 1, 58, 1, 59, 1, 60, 1, 61, 1, 62, 1, 63, 1, 64, 1, 65, 1, 66, 2, 65556, 0, 65557, 1, 65558, 1, 65559, 1, 65560, 1, 65561, 1, 65562, 1, 65563, 1, 65564, 1, 65565, 1, 65566, 2, 131108, 0, 131109, 1, 131110, 1, 131111, 1, 131112, 1, 131113, 1, 131114, 1, 131115, 1, 131116, 1, 131117, 1, 196620, 0, 196621, 1, 196622, 2, 196686, 3, 262156, 4, 262157, 4, 262158, 4, 262222, 4, 393215, 0, 327680, 1, 327681, 1, 327682, 1, 327683, 1, 327684, 1, 327685, 1, 327686, 1, 327687, 1, 327688, 1, 327689, 1, 327690, 1, 327691, 1, 327692, 1, 327693, 1, 327694, 1, 327695, 1, 327696, 1, 327697, 1, 327698, 1, 327699, 1, 327700, 1, 327701, 1, 327702, 1, 327703, 1, 327704, 1, 327705, 1, 327706, 1, 327707, 1, 327708, 1, 327709, 1, 327710, 1, 327711, 1, 327712, 1, 327713, 1, 327714, 1, 327715, 1, 327716, 1, 327717, 1, 327718, 1, 327719, 1, 327720, 1, 327721, 1, 327722, 1, 327723, 1, 327724, 1, 327725, 1, 327726, 1, 327727, 1, 327728, 1, 327729, 1, 327730, 1, 327731, 1, 327732, 1, 327733, 1, 327734, 1, 327735, 1, 327736, 1, 327737, 1, 327738, 1, 327739, 1, 327740, 1, 327741, 1, 327742, 1, 327743, 1, 327744, 1, 327745, 1, 327746, 1, 327747, 1, 327748, 1, 327749, 1, 327750, 1, 327751, 1, 327752, 1, 327753, 1, 327754, 1, 327755, 1, 327756, 1, 327757, 1, 327758, 1, 327759, 1, 327760, 1, 327761, 1, 327762, 1, 327763, 1, 327764, 1, 327765, 1, 327766, 1, 327767, 1 )
+
+[node name="PlayerStart" type="Position2D" parent="."]
+
+transform/pos = Vector2( 16.3641, 257.597 )
+
+[node name="Stars" type="Node2D" parent="."]
+
+[node name="Star" parent="Stars" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 721.231, 41.6311 )
+
+[node name="Star1" parent="Stars" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 2192.1, -62.9149 )
+
+[node name="Star2" parent="Stars" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 3197.12, 222.316 )
+
+[node name="Star3" parent="Stars" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 4114.64, -61.0783 )
+
+[node name="Star4" parent="Stars" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 5225.57, 171.772 )
+
+[node name="Target" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 5497.16, 318.522 )
+
+

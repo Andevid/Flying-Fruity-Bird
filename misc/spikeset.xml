@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resource_file type="TileSet" subresource_count="3" version="2.1" version_name="Godot Engine v2.1.stable.official">
+	<ext_resource path="res://misc/spikes.png" type="Texture" index="0"></ext_resource>
+	<resource type="ConvexPolygonShape2D" path="local://1">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="4"> 			-34.9585, 0.130726, 35.0686, 0.130726, 35, 35, -35, 35 </vector2_array>
+
+	</resource>
+	<main_resource>
+		<string name="0/name"> "Spike" </string>
+		<resource name="0/texture" external="0">  </resource>
+		<vector2 name="0/tex_offset"> 0, 0 </vector2>
+		<resource name="0/material"></resource>		<rect2 name="0/region"> 0, 0, 66, 66 </rect2>
+		<vector2 name="0/occluder_offset"> 33, 33 </vector2>
+		<resource name="0/occluder"></resource>		<vector2 name="0/navigation_offset"> 33, 33 </vector2>
+		<resource name="0/navigation"></resource>		<vector2 name="0/shape_offset"> 33, 33 </vector2>
+		<array name="0/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+
+	</main_resource>
+</resource_file>
