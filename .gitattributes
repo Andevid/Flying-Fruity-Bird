@@ -1,1 +1,3 @@
 *.gd linguist-language=GDSript
+# *.inc linguist-language=GDScript
+*.inc linguist-vendored
