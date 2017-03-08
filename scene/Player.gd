@@ -1,16 +1,6 @@
 
 extends KinematicBody2D
 
-# This is a simple collision demo showing how
-# the kinematic controller works.
-# move() will allow to move the node, and will
-# always move it to a non-colliding spot,
-# as long as it starts from a non-colliding spot too.
-
-#const PROCESS_FIXED = 'Fixed'
-#const PROCESS_IDLE  = 'Idle'
-#export (String, 'Idle', 'Fixed') var process_method = PROCESS_FIXED
-
 # Member variables
 var GRAVITY = 700.0 # Pixels/second 900
 
@@ -146,14 +136,6 @@ func _fixed_process(delta):
 			floor_velocity = get_collider_velocity()
 		
 		if (on_air_time == 0 and force.x == 0 and get_travel().length() < SLIDE_STOP_MIN_TRAVEL and abs(velocity.x) < SLIDE_STOP_VELOCITY and get_collider_velocity() == Vector2()):
-			# Since this formula will always slide the character around, 
-			# a special case must be considered to to stop it from moving 
-			# if standing on an inclined floor. Conditions are:
-			# 1) Standing on floor (on_air_time == 0)
-			# 2) Did not move more than one pixel (get_travel().length() < SLIDE_STOP_MIN_TRAVEL)
-			# 3) Not moving horizontally (abs(velocity.x) < SLIDE_STOP_VELOCITY)
-			# 4) Collider is not moving
-			
 			revert_motion()
 			velocity.y = 0.0
 		else:
@@ -166,20 +148,15 @@ func _fixed_process(delta):
 
 #============== end if is_colliding =====================
 
-	#if (floor_velocity != Vector2()):
+	if (floor_velocity != Vector2()):
 		# If floor moves, move with floor
-		#move(floor_velocity*delta)
-	#	print("move with moving platform")
-	#	pass
+		move(floor_velocity*delta)
 	
 	if (is_jumping and velocity.y > 0):
 		# If falling, no longer jumping
 		is_jumping = false
 	
 	if (on_air_time < JUMP_MAX_AIRBORNE_TIME and is_flyingup and not prev_jump_pressed and not is_jumping):
-		# Jump must also be allowed to happen 
-		# if the character left the floor a little bit ago.
-		# Makes controls more snappy.
 		velocity.y = -JUMP_SPEED
 		is_jumping = true
 		

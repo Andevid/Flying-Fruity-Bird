@@ -1,7 +1,7 @@
 
 extends Node2D
 
-var act_scn = preload("res://scene/Item.tscn")
+var itm_scn = preload("res://scene/Item.tscn")
 var player_scn = preload("res://scene/Player.tscn")
 var target_scn = preload("res://scene/Target.tscn")
 
@@ -27,14 +27,14 @@ func _input(event):
 	#to enable this set on emulate_touchscreen in project settings
 	#if (event.type == InputEvent.SCREEN_TOUCH && event.is_pressed() && is_enable):
 	if (event.type == InputEvent.MOUSE_BUTTON && event.is_pressed() && is_enable && event.button_index == BUTTON_LEFT):
-		if (get_viewport().get_mouse_pos().x > 200 && get_global_mouse_pos().y > -320):
+		if (event.global_x > 200 && get_global_mouse_pos().y > -320):
 			if (main.getItemCount() >= 1):
 				#play sound spawn item
+				var item = itm_scn.instance()
 				
 				#var pos_a = get_viewport_transform().get_origin() - event.global_pos
 				#item.set_global_pos(pos_a.abs() *1.1)	# * camera zoom
 				
-				var item = act_scn.instance()
 				item.set_pos(get_global_mouse_pos())
 				
 				get_node("Items").add_child(item)
