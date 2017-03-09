@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=1]
 
-[ext_resource path="res://image/landing_effect.png" type="Texture" id=1]
+[ext_resource path="res://image/spark_particle.png" type="Texture" id=1]
 [ext_resource path="res://scene/point.gd" type="Script" id=2]
 
 [node name="Point" type="Sprite"]

@@ -35,7 +35,7 @@ func _input(event):
 				#var pos_a = get_viewport_transform().get_origin() - event.global_pos
 				#item.set_global_pos(pos_a.abs() *1.1)	# * camera zoom
 				
-				item.set_pos(get_global_mouse_pos())
+				item.set_global_pos(get_global_mouse_pos())
 				
 				get_node("Items").add_child(item)
 				main.addItem(-1)
