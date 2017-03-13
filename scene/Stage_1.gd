@@ -27,7 +27,7 @@ func _input(event):
 	#to enable this set on emulate_touchscreen in project settings
 	#if (event.type == InputEvent.SCREEN_TOUCH && event.is_pressed() && is_enable):
 	if (event.type == InputEvent.MOUSE_BUTTON && event.is_pressed() && is_enable && event.button_index == BUTTON_LEFT):
-		# alternative to get_global_mouse_pos() --- sometimes inaccurate too!!! 
+		# alternative to get_global_mouse_pos() --- 100% work 
 		var pos_a = event.global_pos - get_global_transform_with_canvas().get_origin()
 		
 		if (event.x > 200 && pos_a.y > -320):
@@ -39,6 +39,7 @@ func _input(event):
 				#item.set_global_pos(get_global_mouse_pos())
 				
 				# working normally on Android
+				# if Camera zoom not set to 1, pos_a * camera_zoom
 				item.set_global_pos(pos_a)
 				get_node("Items").add_child(item)
 				main.addItem(-1)
