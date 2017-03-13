@@ -14,7 +14,6 @@ item_speed_down = 10
 
 [node name="TileMap" type="TileMap" parent="."]
 
-transform/pos = Vector2( 5, 0 )
 mode = 0
 tile_set = ExtResource( 2 )
 cell/size = Vector2( 64, 64 )

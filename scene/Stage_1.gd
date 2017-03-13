@@ -27,16 +27,19 @@ func _input(event):
 	#to enable this set on emulate_touchscreen in project settings
 	#if (event.type == InputEvent.SCREEN_TOUCH && event.is_pressed() && is_enable):
 	if (event.type == InputEvent.MOUSE_BUTTON && event.is_pressed() && is_enable && event.button_index == BUTTON_LEFT):
-		if (event.global_x > 200 && get_global_mouse_pos().y > -320):
+		# alternative to get_global_mouse_pos() --- sometimes inaccurate too!!! 
+		var pos_a = event.global_pos - get_global_transform_with_canvas().get_origin()
+		
+		if (event.x > 200 && pos_a.y > -320):
 			if (main.getItemCount() >= 1):
 				#play sound spawn item
 				var item = itm_scn.instance()
 				
-				#var pos_a = get_viewport_transform().get_origin() - event.global_pos
-				#item.set_global_pos(pos_a.abs() *1.1)	# * camera zoom
+				# still not working normally on Android, confirmed as bug!
+				#item.set_global_pos(get_global_mouse_pos())
 				
-				item.set_global_pos(get_global_mouse_pos())
-				
+				# working normally on Android
+				item.set_global_pos(pos_a)
 				get_node("Items").add_child(item)
 				main.addItem(-1)
 				get_node("HUD").updateInventory()
@@ -44,8 +47,8 @@ func _input(event):
 			else:
 				#play sound item not available
 				pass
-		elif (get_global_mouse_pos().y < -320):
-			get_node("HUD/LbInfo").set_text("The Bird flying too high! It's dangers!")
+		elif (pos_a.y < -320):
+			get_node("HUD/LbInfo").set_text("The Bird flying too high! It's dangerous!")
 			pass
 
 
