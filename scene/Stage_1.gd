@@ -28,18 +28,19 @@ func _input(event):
 	#if (event.type == InputEvent.SCREEN_TOUCH && event.is_pressed() && is_enable):
 	if (event.type == InputEvent.MOUSE_BUTTON && event.is_pressed() && is_enable && event.button_index == BUTTON_LEFT):
 		# alternative to get_global_mouse_pos() --- 100% work 
-		var pos_a = event.global_pos - get_global_transform_with_canvas().get_origin()
+		#var pos_a = event.global_pos - get_global_transform_with_canvas().get_origin()
+		# if Camera zoom not set to 1, pos_a * camera_zoom
+		var pos_a = get_global_mouse_pos()
 		
 		if (event.x > 200 && pos_a.y > -320):
 			if (main.getItemCount() >= 1):
 				#play sound spawn item
 				var item = itm_scn.instance()
 				
-				# still not working normally on Android, confirmed as bug!
+				# working normally on Android, fixed.
 				#item.set_global_pos(get_global_mouse_pos())
 				
 				# working normally on Android
-				# if Camera zoom not set to 1, pos_a * camera_zoom
 				item.set_global_pos(pos_a)
 				get_node("Items").add_child(item)
 				main.addItem(-1)

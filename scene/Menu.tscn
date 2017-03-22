@@ -139,10 +139,29 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="Reward" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 956.0
+margin/top = 395.0
+margin/right = 1130.0
+margin/bottom = 500.0
+custom_fonts/font = ExtResource( 4 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "REWARD"
+flat = false
+
 [connection signal="pressed" from="HBoxButton/Level1" to="." method="_on_Level1_pressed"]
 
 [connection signal="pressed" from="HBoxButton/Level2" to="." method="_on_Level2_pressed"]
 
 [connection signal="pressed" from="HBoxButton/Level3" to="." method="_on_Level3_pressed"]
+
+[connection signal="pressed" from="Reward" to="." method="_on_Reward_pressed"]
 
 

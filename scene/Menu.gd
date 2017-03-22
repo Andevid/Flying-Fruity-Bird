@@ -30,3 +30,7 @@ func _on_Level2_pressed():
 func _on_Level3_pressed():
 	main.level = 3
 	get_tree().change_scene("res://scene/Stage_3.tscn")
+
+
+func _on_Reward_pressed():
+	modmain.loadRewardedVideo()
